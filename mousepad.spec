@@ -1,5 +1,5 @@
-Summary:	Mousepad is a text editor for Xfce based on Leafpad
-Summary(pl):	Mousepad jest edytorem dla Xfce opartym na Leafpad
+Summary:	Mousepad - a text editor for Xfce based on Leafpad
+Summary(pl):	Mousepad - edytor dla Xfce oparty na Leafpadzie
 Name:		mousepad
 Version:	0.2.0
 Release:	0.1
