@@ -6,8 +6,8 @@ Release:	0.1
 License:	GPLv2
 Group:		X11/Applications/Editors
 Source0:	http://erikharrison.net/software/%{name}-%{version}.tar.gz
-# Source0-md5:	
-URL:		none_at_the_moment_I_think
+# Source0-md5:	e554145e8fffcd5fd8d3e027575e0765
+#URL:		none_at_the_moment_I_think
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libxfcegui4-devel
 buildRequires:	libxfce4util-devel
@@ -17,13 +17,13 @@ Requires:	xfprint >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Mousepad is a text editor for Xfce based on Leafpad
+Mousepad is a text editor for Xfce based on Leafpad.
 
 %description -l pl
-Mousepad jest edytorem dla Xfce opartym na Leafpad
+Mousepad jest edytorem dla Xfce opartym na Leafpad.
 
 %prep
-%setup
+%setup -q
 
 %build
 %configure
