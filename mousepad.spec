@@ -10,7 +10,7 @@ Source0:	http://erikharrison.net/software/%{name}-%{version}.tar.gz
 #URL:		none_at_the_moment_I_think
 BuildRequires:	gtk+2-devel >= 2.2.0
 BuildRequires:	libxfcegui4-devel
-buildRequires:	libxfce4util-devel
+BuildRequires:	libxfce4util-devel
 Requires:	libxfcegui4
 Requires:	libxfce4util
 Requires:	xfprint >= 4.2
