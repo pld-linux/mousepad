@@ -1,12 +1,12 @@
 Summary:	Mousepad - a text editor for Xfce based on Leafpad
 Summary(pl):	Mousepad - edytor dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.2.1
+Version:	0.2.2
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://erikharrison.net/software/%{name}-%{version}.tar.gz
-# Source0-md5:	9a5bf90acc6fffd5c09334c7cb4b7054
+# Source0-md5:	1240ea13b37b9d8a7a63799af5701b44
 BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2:2.4.0
 BuildRequires:	libxfcegui4-devel >= 4.2.0
