@@ -16,10 +16,18 @@ Requires:	xfprint >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Mousepad is a text editor for Xfce based on Leafpad.
+Mousepad is a lightweight text editor for Xfce. It features a simple
+interface,  broad character set support, printing with Xfprint, and
+more. It opens lightening quick, making it perfect for editing config
+files, doing quick scripting, and pretty printing documents like shell
+scripts.
 
 %description -l pl
-Mousepad jest edytorem dla Xfce opartym na Leafpad.
+Mousepad jest lekkim edytorem tekstowym dla Xfce. Cechuje go prosty
+interfejs, obs³uga wielu zestawów znaków, drukowanie przy pomocy
+Xfprint i wiele wiêcej. Uruchamia siê b³yskawicznie, dziêki czemu
+jest idealny do edycji plików konfiguracyjnych, pisania ma³ych
+skryptów i piêknego drukowania dokumentów takich jak skrypty pow³oki.
 
 %prep
 %setup -q
