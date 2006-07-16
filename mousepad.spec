@@ -1,22 +1,25 @@
-%define		_ver_xfce	4.3.90.1
-Summary:	Mousepad - a text editor for Xfce based on Leafpad
-Summary(pl):	Mousepad - edytor dla Xfce oparty na Leafpadzie
+#
+%define		xfce_version	4.3.90.2
+#
+Summary:	Text editor for Xfce based on Leafpad
+Summary(pl):	Edytor textu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.2.4
+Version:	0.2.6
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
-Source0:	http://www.xfce.org/archive/xfce-%{_ver_xfce}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	2c0fe7d5fd9e3d1aa29e6befdf11f355
+Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
+# Source0-md5:	f8c23b1de6d23927729c477689883c38
+Patch0:		%{name}-desktop.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
-BuildRequires:	gtk+2-devel >= 2:2.4.0
-BuildRequires:	intltool
+BuildRequires:	gtk+2-devel >= 2:2.10.0
+BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
-BuildRequires:	libxfcegui4-devel >= %{_ver_xfce}
+BuildRequires:	libxfcegui4-devel >= %{xfce_version}
 BuildRequires:	pkgconfig  >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= %{_ver_xfce}
+BuildRequires:	xfce4-dev-tools >= %{xfce_version}
 #Requires:	xfprint >= 4.2
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,13 +39,15 @@ skryptów i piêknego drukowania dokumentów takich jak skrypty pow³oki.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__libtoolize}
-%{__aclocal} -I %{_datadir}/xfce4/dev-tools/m4macros
+%{__aclocal}
 %{__autoheader}
 %{__automake}
 %{__autoconf}
+LDFLAGS="%{rpmldflags} -Wl,--as-needed"
 %configure
 %{__make}
 
