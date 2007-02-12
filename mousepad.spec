@@ -2,7 +2,7 @@
 %define		xfce_version	4.4.0
 #
 Summary:	Text editor for Xfce based on Leafpad
-Summary(pl):	Edytor tekstu dla Xfce oparty na Leafpadzie
+Summary(pl.UTF-8):   Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
 Version:	0.2.12
 Release:	1
@@ -30,12 +30,12 @@ more. It opens lightening quick, making it perfect for editing config
 files, doing quick scripting, and pretty printing documents like shell
 scripts.
 
-%description -l pl
+%description -l pl.UTF-8
 Mousepad jest lekkim edytorem tekstowym dla Xfce. Cechuje go prosty
-interfejs, obs³uga wielu zestawów znaków, drukowanie przy pomocy
-Xfprint i wiele wiêcej. Uruchamia siê b³yskawicznie, dziêki czemu jest
-idealny do edycji plików konfiguracyjnych, pisania ma³ych skryptów i
-piêknego drukowania dokumentów takich jak skrypty pow³oki.
+interfejs, obsÅ‚uga wielu zestawÃ³w znakÃ³w, drukowanie przy pomocy
+Xfprint i wiele wiÄ™cej. Uruchamia siÄ™ bÅ‚yskawicznie, dziÄ™ki czemu jest
+idealny do edycji plikÃ³w konfiguracyjnych, pisania maÅ‚ych skryptÃ³w i
+piÄ™knego drukowania dokumentÃ³w takich jak skrypty powÅ‚oki.
 
 %prep
 %setup -q
