@@ -2,7 +2,7 @@
 %define		xfce_version	4.4.0
 #
 Summary:	Text editor for Xfce based on Leafpad
-Summary(pl.UTF-8):   Edytor tekstu dla Xfce oparty na Leafpadzie
+Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
 Version:	0.2.12
 Release:	1
