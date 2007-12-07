@@ -1,16 +1,17 @@
 #
-%define		xfce_version	4.4.0
+%define		xfce_version	4.4.2
 #
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.2.12
+Version:	0.2.13
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	8549b2012afc761cb4548b138e2ee23c
+# Source0-md5:	326075ac933e5da38cedbc20e80b7026
 Patch0:		%{name}-desktop.patch
+Patch1:		%{name}-locale-names.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -19,8 +20,7 @@ BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	libxfcegui4-devel >= %{xfce_version}
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= %{xfce_version}
-#Requires:	xfprint >= 4.2
+BuildRequires:	xfce4-dev-tools >= 4.4.0.1
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,8 +40,13 @@ pięknego drukowania dokumentów takich jak skrypty powłoki.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
+
+mv -f po/{nb_NO,nb}.po
+mv -f po/{pt_PT,pt}.po
 
 %build
+%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoheader}
