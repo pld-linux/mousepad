@@ -1,15 +1,15 @@
 #
-%define		xfce_version	4.4.2
+%define		xfce_version	4.4.3
 #
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.2.13
+Version:	0.2.14
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	326075ac933e5da38cedbc20e80b7026
+# Source0-md5:	6cfef0e424c778409e2791d0af6ab089
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-locale-names.patch
 BuildRequires:	autoconf >= 2.52
