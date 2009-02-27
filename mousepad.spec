@@ -1,17 +1,16 @@
 #
-%define		xfce_version	4.4.3
+%define		xfce_version	4.6.0
 #
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.2.14
+Version:	0.2.16
 Release:	1
 License:	GPL v2
 Group:		X11/Applications/Editors
 Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
-# Source0-md5:	6cfef0e424c778409e2791d0af6ab089
+# Source0-md5:	d98854edb76d823ac20b266fdf5a64a1
 Patch0:		%{name}-desktop.patch
-Patch1:		%{name}-locale-names.patch
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
@@ -20,7 +19,7 @@ BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	libxfcegui4-devel >= %{xfce_version}
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= 4.4.0.1
+BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -40,10 +39,6 @@ pięknego drukowania dokumentów takich jak skrypty powłoki.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
-
-mv -f po/{nb_NO,nb}.po
-mv -f po/{pt_PT,pt}.po
 
 %build
 %{__intltoolize}
@@ -60,6 +55,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+mv $RPM_BUILD_ROOT%{_datadir}/locale/pt{_PT,}
 
 %find_lang %{name}
 
