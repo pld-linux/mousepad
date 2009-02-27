@@ -1,9 +1,19 @@
-diff -aurN mousepad-0.2.6.orig/mousepad.desktop.in mousepad-0.2.6/mousepad.desktop.in
---- mousepad-0.2.6.orig/mousepad.desktop.in	2006-07-10 14:31:36.000000000 +0200
-+++ mousepad-0.2.6/mousepad.desktop.in	2006-07-16 21:35:18.484851423 +0200
-@@ -10,4 +10,4 @@
+diff -urN mousepad-0.2.16/mousepad.desktop.in mousepad-0.2.16.new/mousepad.desktop.in
+--- mousepad-0.2.16/mousepad.desktop.in	2008-06-27 22:01:33.000000000 +0200
++++ mousepad-0.2.16.new/mousepad.desktop.in	2009-02-27 23:23:30.000000000 +0100
+@@ -1,7 +1,6 @@
+ [Desktop Entry]
+ Version=1.0
+ Type=Application
+-Encoding=UTF-8
+ _Name=Mousepad
+ _Comment=Simple text editor
+ _GenericName=Text Editor
+@@ -9,5 +8,5 @@
+ Icon=mousepad
  StartupNotify=true
  Terminal=false
- MimeType=text/plain
+-MimeType=text/plain
 -Categories=Application;Utility;TextEditor;GTK;
-+Categories=GTK;Utility;TextEditor;
++MimeType=text/plain;
++Categories=Utility;TextEditor;GTK;
