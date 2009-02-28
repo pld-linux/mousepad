@@ -11,6 +11,7 @@ Group:		X11/Applications/Editors
 Source0:	http://www.xfce.org/archive/xfce-%{xfce_version}/src/%{name}-%{version}.tar.bz2
 # Source0-md5:	d98854edb76d823ac20b266fdf5a64a1
 Patch0:		%{name}-desktop.patch
+URL:		http://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-devel
