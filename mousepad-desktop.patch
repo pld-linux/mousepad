@@ -16,4 +16,4 @@ diff -urN mousepad-0.2.16/mousepad.desktop.in mousepad-0.2.16.new/mousepad.deskt
 -MimeType=text/plain
 -Categories=Application;Utility;TextEditor;GTK;
 +MimeType=text/plain;
-+Categories=Utility;TextEditor;GTK;
++Categories=X-XFCE;Utility;TextEditor;GTK;
