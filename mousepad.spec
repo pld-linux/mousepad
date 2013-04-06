@@ -1,4 +1,3 @@
-%define		xfce_version	4.6.0
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
@@ -17,7 +16,6 @@ BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	gtksourceview2-devel >= 2.2.2
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
-BuildRequires:	libxfcegui4-devel >= %{xfce_version}
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 Requires:	desktop-file-utils
