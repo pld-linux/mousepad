@@ -11,7 +11,7 @@ Patch0:		%{name}-desktop.patch
 URL:		http://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
-BuildRequires:	gettext-devel
+BuildRequires:	gettext-tools
 BuildRequires:	gtk+2-devel >= 2:2.20.0
 BuildRequires:	gtksourceview2-devel >= 2.2.2
 BuildRequires:	intltool >= 0.35.0
