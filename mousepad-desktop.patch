@@ -1,17 +1,9 @@
 --- mousepad-0.3.0/mousepad.desktop.in.in~	2012-12-30 13:04:01.000000000 +0200
 +++ mousepad-0.3.0/mousepad.desktop.in.in	2013-04-06 20:36:48.664344689 +0300
-@@ -1,6 +1,4 @@
--
- [Desktop Entry]
--Encoding=UTF-8
- _Name=Mousepad
- _Comment=Simple Text Editor
- _GenericName=Text Editor
-@@ -9,5 +7,5 @@
+@@ -8,5 +8,5 @@
  Terminal=false
  StartupNotify=true
  Type=Application
--Categories=Application;Utility;TextEditor;GTK;
--MimeType=text/plain
+-Categories=Utility;TextEditor;GTK;
 +Categories=X-XFCE;Utility;TextEditor;GTK;
-+MimeType=text/plain;
+ MimeType=text/plain;

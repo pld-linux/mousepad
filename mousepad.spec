@@ -1,23 +1,23 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.3.0
-Release:	2
+Version:	0.4.0
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://archive.xfce.org/src/apps/mousepad/0.3/%{name}-%{version}.tar.bz2
-# Source0-md5:	dcfcdfaa8a19c89f35d5f6f64753e6e1
+Source0:	http://archive.xfce.org/src/apps/mousepad/0.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	f55314c5dda6323883241e6cf01550a7
 Patch0:		%{name}-desktop.patch
 URL:		http://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	gtk+2-devel >= 2:2.20.0
+BuildRequires:	gtk+2-devel >= 2:2.24.0
 BuildRequires:	gtksourceview2-devel >= 2.2.2
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= 4.6.0
+BuildRequires:	xfce4-dev-tools >= 4.12.0
 Requires:	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,6 +38,8 @@ pięknego drukowania dokumentów takich jak skrypty powłoki.
 %prep
 %setup -q
 %patch0 -p1
+
+mkdir -p m4
 
 %{__sed} -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' configure.ac
 
@@ -69,3 +71,4 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/mousepad
 %{_desktopdir}/mousepad.desktop
+%{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
