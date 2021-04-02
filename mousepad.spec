@@ -14,7 +14,7 @@ BuildRequires:	automake
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.52.0
 BuildRequires:	gtk+3-devel >= 3.22
-BuildRequires:	gtksourceview3-devel >= 3.24
+BuildRequires:	gtksourceview4-devel >= 4.0.0
 BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
 BuildRequires:	pkgconfig >= 1:0.9.0
