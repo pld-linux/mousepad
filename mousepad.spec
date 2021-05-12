@@ -1,18 +1,19 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.5.4
+Version:	0.5.5
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	http://archive.xfce.org/src/apps/mousepad/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	aac96998bcccff5e72f70b8eb0f75425
+# Source0-md5:	d588c4fa463154404c7dfe318572b792
 Patch0:		%{name}-desktop.patch
 URL:		http://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-tools
 BuildRequires:	glib2-devel >= 2.52.0
+BuildRequires:	gspell-devel >= 1.6.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtksourceview4-devel >= 4.0.0
 BuildRequires:	intltool >= 0.35.0
@@ -62,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}{/%{name}/plugins,}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmousepad.so
+
 %find_lang %{name}
 
 %clean
@@ -81,8 +85,14 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS
 %attr(755,root,root) %{_bindir}/mousepad
+%attr(755,root,root) %{_libdir}/libmousepad.so.*.*.*
+%attr(755,root,root) %{_libdir}/libmousepad.so.0
+%dir %{_libdir}/%{name}/plugins
+%attr(755,root,root) %{_libdir}/%{name}/plugins/libmousepad-plugin-gspell.so
 %{_desktopdir}/mousepad.desktop
+%{_desktopdir}/mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.xfce.mousepad.plugins.gspell.gschema.xml
 %{_datadir}/metainfo/mousepad.appdata.xml
 %{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
 %{_iconsdir}/hicolor/*x*/apps/org.xfce.mousepad.png
