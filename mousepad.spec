@@ -1,12 +1,12 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.5.6
+Version:	0.5.7
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	http://archive.xfce.org/src/apps/mousepad/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	96fa4d1cb7a522104d7dd41943c8b382
+# Source0-md5:	7a6f55db9d1cbf75e268b4789e848e11
 Patch0:		%{name}-desktop.patch
 URL:		http://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
@@ -90,11 +90,11 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/plugins/libmousepad-plugin-gspell.so
-%{_desktopdir}/mousepad.desktop
-%{_desktopdir}/mousepad-settings.desktop
+%{_desktopdir}/org.xfce.mousepad.desktop
+%{_desktopdir}/org.xfce.mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.plugins.gspell.gschema.xml
-%{_datadir}/metainfo/mousepad.appdata.xml
+%{_datadir}/metainfo/org.xfce.mousepad.appdata.xml
 %{_datadir}/polkit-1/actions/org.xfce.mousepad.policy
 %{_iconsdir}/hicolor/*x*/apps/org.xfce.mousepad.png
 %{_iconsdir}/hicolor/scalable/apps/org.xfce.mousepad.svg
