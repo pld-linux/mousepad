@@ -1,18 +1,18 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.5.10
+Version:	0.6.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	http://archive.xfce.org/src/apps/mousepad/0.5/%{name}-%{version}.tar.bz2
-# Source0-md5:	4c6cde9a05c6f8048133d8d4137edca9
+Source0:	https://archive.xfce.org/src/apps/mousepad/0.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	33bf0588828cc1252fa17a2312f974b1
 Patch0:		%{name}-desktop.patch
-URL:		http://www.xfce.org/projects/mousepad/
+URL:		https://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 2.52.0
+BuildRequires:	glib2-devel >= 2.56.2
 BuildRequires:	gspell-devel >= 1.6.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtksourceview4-devel >= 4.0.0
@@ -90,6 +90,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_libdir}/%{name}
 %dir %{_libdir}/%{name}/plugins
 %attr(755,root,root) %{_libdir}/%{name}/plugins/libmousepad-plugin-gspell.so
+%attr(755,root,root) %{_libdir}/%{name}/plugins/libmousepad-plugin-shortcuts.so
 %{_desktopdir}/org.xfce.mousepad.desktop
 %{_desktopdir}/org.xfce.mousepad-settings.desktop
 %{_datadir}/glib-2.0/schemas/org.xfce.mousepad.gschema.xml
