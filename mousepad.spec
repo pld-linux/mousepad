@@ -1,12 +1,12 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.6.0
+Version:	0.6.1
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	https://archive.xfce.org/src/apps/mousepad/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	33bf0588828cc1252fa17a2312f974b1
+# Source0-md5:	9f1b5565cbb8975f85ed5cc0ff6a876b
 Patch0:		%{name}-desktop.patch
 URL:		https://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
@@ -16,10 +16,11 @@ BuildRequires:	glib2-devel >= 2.56.2
 BuildRequires:	gspell-devel >= 1.6.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtksourceview4-devel >= 4.0.0
-BuildRequires:	intltool >= 0.35.0
 BuildRequires:	libtool
+BuildRequires:	libxfce4ui-devel >= 4.18
 BuildRequires:	pkgconfig >= 1:0.9.0
-BuildRequires:	xfce4-dev-tools >= 4.14.0
+BuildRequires:	polkit-devel >= 0.102
+BuildRequires:	xfce4-dev-tools >= 4.18.0
 Requires:	desktop-file-utils
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -46,7 +47,6 @@ mkdir -p m4
 %{__sed} -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' configure.ac
 
 %build
-%{__intltoolize}
 %{__libtoolize}
 %{__aclocal}
 %{__autoheader}
