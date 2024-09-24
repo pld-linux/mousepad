@@ -2,7 +2,7 @@ Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
 Version:	0.6.2
-Release:	1
+Release:	2
 License:	GPL v2+
 Group:		X11/Applications/Editors
 Source0:	https://archive.xfce.org/src/apps/mousepad/0.6/%{name}-%{version}.tar.bz2
@@ -12,7 +12,7 @@ URL:		https://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	gettext-tools
-BuildRequires:	glib2-devel >= 2.56.2
+BuildRequires:	glib2-devel >= 1:2.56.2
 BuildRequires:	gspell-devel >= 1.6.0
 BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtksourceview4-devel >= 4.0.0
@@ -21,7 +21,11 @@ BuildRequires:	libxfce4ui-devel >= 4.18
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	polkit-devel >= 0.102
 BuildRequires:	xfce4-dev-tools >= 4.18.0
-Requires:	desktop-file-utils
+Requires(post,postun):	desktop-file-utils
+Requires:	glib2 >= 1:2.56.2
+Requires:	gspell >= 1.6.0
+Requires:	gtk+3 >= 3.22
+Requires:	libxfce4ui >= 4.18
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -57,10 +61,12 @@ mkdir -p m4
 
 %install
 rm -rf $RPM_BUILD_ROOT
+
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{fa_IR,hye,ie}
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie}
+%{__mv} $RPM_BUILD_ROOT%{_localedir}/{fa_IR,fa}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}{/%{name}/plugins,}/*.la
@@ -72,11 +78,13 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT
 
 %post
+/sbin/ldconfig
 %update_desktop_database_post
 %update_icon_cache hicolor
 %glib_compile_schemas
 
 %postun
+/sbin/ldconfig
 %update_desktop_database_postun
 %update_icon_cache hicolor
 %glib_compile_schemas
