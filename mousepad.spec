@@ -1,12 +1,12 @@
 Summary:	Text editor for Xfce based on Leafpad
 Summary(pl.UTF-8):	Edytor tekstu dla Xfce oparty na Leafpadzie
 Name:		mousepad
-Version:	0.6.3
+Version:	0.6.4
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Editors
-Source0:	https://archive.xfce.org/src/apps/mousepad/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	6e46d6a22e0656fbddf2655d1e9dfc1f
+Source0:	https://archive.xfce.org/src/apps/mousepad/0.6/%{name}-%{version}.tar.xz
+# Source0-md5:	70ce391423991d5141f567140debdc1b
 Patch0:		%{name}-desktop.patch
 URL:		https://www.xfce.org/projects/mousepad/
 BuildRequires:	autoconf >= 2.52
@@ -18,6 +18,8 @@ BuildRequires:	gtk+3-devel >= 3.22
 BuildRequires:	gtksourceview4-devel >= 4.0.0
 BuildRequires:	libtool
 BuildRequires:	libxfce4ui-devel >= 4.18
+BuildRequires:	meson >= 0.57.0
+BuildRequires:	ninja
 BuildRequires:	pkgconfig >= 1:0.9.0
 BuildRequires:	polkit-devel >= 0.102
 BuildRequires:	xfce4-dev-tools >= 4.18.0
@@ -44,32 +46,26 @@ pięknego drukowania dokumentów takich jak skrypty powłoki.
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P 0 -p1
 
 mkdir -p m4
 
 %{__sed} -i -e 's/AM_CONFIG_HEADER/AC_CONFIG_HEADERS/' configure.ac
 
 %build
-%{__libtoolize}
-%{__aclocal}
-%{__autoheader}
-%{__automake}
-%{__autoconf}
-%configure
-%{__make}
+%meson
+%meson_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%meson_install
 
 %{__rm} -r $RPM_BUILD_ROOT%{_localedir}/{hye,ie}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{fa_IR,fa}
 %{__mv} $RPM_BUILD_ROOT%{_localedir}/{hy_AM,hy}
 
-%{__rm} $RPM_BUILD_ROOT%{_libdir}{/%{name}/plugins,}/*.la
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmousepad.a
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/libmousepad.so
 
 %find_lang %{name}
@@ -91,7 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS
+%doc AUTHORS NEWS
 %attr(755,root,root) %{_bindir}/mousepad
 %attr(755,root,root) %{_libdir}/libmousepad.so.*.*.*
 %attr(755,root,root) %{_libdir}/libmousepad.so.0
